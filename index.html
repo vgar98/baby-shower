@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baby Shower de Nara</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;900&display=swap">
+<style>
+/* Layout: cómic de aventuras para bebés: cielo pastel con nubes, explosión de energía suave detrás de la mascota, paneles redondeados con borde de tinta. Un solo tema claro por elección. */
+:root{
+  --sky:#bfe6ff;
+  --sky-2:#ffd9ec;
+  --panel:#ffffff;
+  --ink:#2b2350;
+  --energy:#ffd23f;
+  --flare:#ffa94d;
+  --magenta:#ff6fae;
+  --cyan:#6fd3f5;
+  --soft:#5d5585;
+  --on-ink:#e4dfff;
+  --display:"Fredoka", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  --body:"Nunito", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{background:var(--sky)}
+body{
+  background:var(--sky);
+  background-image:
+    radial-gradient(ellipse 120px 50px at 12% 18%, rgba(255,255,255,.9) 60%, transparent 62%),
+    radial-gradient(ellipse 90px 40px at 88% 30%, rgba(255,255,255,.85) 60%, transparent 62%),
+    radial-gradient(ellipse 110px 46px at 8% 62%, rgba(255,255,255,.8) 60%, transparent 62%),
+    radial-gradient(ellipse 100px 44px at 92% 78%, rgba(255,255,255,.8) 60%, transparent 62%),
+    linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;line-height:1.55;
+  padding-block:28px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  overflow-x:hidden;
+}
+.wrap{max-width:540px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+
+/* HERO */
+.hero{position:relative;text-align:center;padding-top:8px;overflow:hidden;margin-inline:-16px;padding-inline:16px}
+html{overflow-x:hidden}
+.burst{
+  position:absolute;left:50%;top:150px;width:520px;height:520px;max-width:none;
+  transform:translate(-50%,-50%);pointer-events:none;z-index:0;
+  background:repeating-conic-gradient(from 0deg, rgba(255,210,63,.32) 0 4deg, transparent 4deg 12deg);
+  -webkit-mask:radial-gradient(circle, #000 18%, transparent 62%);
+          mask:radial-gradient(circle, #000 18%, transparent 62%);
+  animation:spin 40s linear infinite;
+}
+.aura{
+  position:absolute;left:50%;top:150px;width:240px;height:240px;transform:translate(-50%,-50%);
+  border-radius:50%;z-index:0;
+  background:radial-gradient(circle, rgba(255,210,63,.85), rgba(255,122,26,.45) 45%, transparent 70%);
+  filter:blur(6px);animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.85}50%{transform:translate(-50%,-50%) scale(1.06);opacity:1}}
+.mascot{position:relative;z-index:1;width:230px;max-width:70%;height:auto;display:block;margin:0 auto;
+  animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.kicker{
+  position:relative;z-index:1;display:inline-block;margin:10px 0 0;
+  font-family:var(--display);letter-spacing:.08em;font-size:1.15rem;
+  background:var(--magenta);color:var(--panel);padding:4px 14px 2px;
+  border:3px solid var(--ink);transform:rotate(-2deg);box-shadow:4px 4px 0 var(--ink);
+}
+h1{
+  position:relative;z-index:1;
+  font-family:var(--display);font-weight:400;letter-spacing:.03em;
+  font-size:clamp(3.2rem, 15vw, 5.2rem);line-height:.9;margin:14px 0 0;
+  color:var(--panel);
+  -webkit-text-stroke:3px var(--ink);paint-order:stroke fill;
+  text-shadow:5px 5px 0 var(--flare), 9px 9px 0 var(--ink);
+  text-wrap:balance;
+}
+.name{
+  position:relative;z-index:1;
+  font-family:var(--display);font-weight:400;letter-spacing:.04em;
+  font-size:clamp(2rem, 9vw, 2.9rem);line-height:1;margin:16px 0 0;
+  color:var(--energy);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;
+  text-shadow:4px 4px 0 var(--ink);text-wrap:balance;
+}
+.lead{position:relative;z-index:1;color:var(--soft);max-width:34ch;margin:12px auto 0;font-weight:700}
+
+/* PANELS */
+.panel{
+  background:var(--panel);color:var(--ink);
+  border:4px solid var(--ink);box-shadow:7px 7px 0 var(--flare);
+  padding:22px 20px;position:relative;
+}
+.panel:nth-of-type(odd){transform:rotate(-.6deg)}
+.panel:nth-of-type(even){transform:rotate(.6deg);box-shadow:7px 7px 0 var(--cyan)}
+.tag{
+  position:absolute;top:-16px;left:16px;
+  font-family:var(--display);letter-spacing:.08em;font-size:1.05rem;
+  background:var(--energy);color:var(--ink);border:3px solid var(--ink);padding:2px 10px 0;
+}
+
+.when{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;text-align:center}
+.when .side{font-family:var(--display);font-size:1.5rem;letter-spacing:.05em;line-height:1}
+.when .day{font-family:var(--display);font-size:5rem;line-height:.85;color:var(--magenta);
+  -webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.when .month{display:block;font-weight:900;letter-spacing:.2em;font-size:.85rem;margin-top:4px}
+
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.hero-cta{position:relative;z-index:1;display:inline-block;margin-top:18px;font-size:1rem}
+.intro p{margin:6px 0 0;font-weight:700;font-size:1.05rem}
+.intro p + p{margin-top:10px;font-weight:400}
+.gifts{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gifts li{border:3px solid var(--ink);padding:8px 10px;font-weight:700;font-size:.92rem;background:#fff;display:flex;gap:8px;align-items:center;min-width:0}
+.gifts li::before{content:"";flex:none;width:10px;height:10px;background:var(--magenta);border:2px solid var(--ink);transform:rotate(45deg)}
+.small{font-size:.85rem;color:#5b5568;margin:12px 0 0}
+.rsvp p{margin:6px 0 0}
+.btn.wa{background:#3fd27a}
+
+/* Versión infantil: formas redondas y peso tipográfico */
+h1,.name,.kicker,.tag,.when .side,.when .day,.unit b,.address,.closing p,.cd-done{font-weight:700;letter-spacing:.01em}
+h1{font-size:clamp(2.8rem, 13vw, 4.4rem)}
+.burst{background:repeating-conic-gradient(from 0deg, rgba(255,255,255,.75) 0 5deg, transparent 5deg 13deg)}
+.panel{border-radius:24px;border-width:3px;box-shadow:6px 6px 0 var(--magenta)}
+.panel:nth-of-type(even){box-shadow:6px 6px 0 var(--cyan)}
+.tag,.kicker{border-radius:999px}
+.btn{border-radius:999px}
+.unit{border-radius:16px}
+.unit small{color:var(--on-ink)}
+.bar{border-radius:999px}
+.gifts li{border-radius:14px}
+.gifts li::before{border-radius:50%;transform:none}
+.small{color:var(--soft)}
+.unit{background:var(--ink);color:var(--energy);text-align:center;padding:10px 4px 8px;border-radius:4px}
+.unit b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.unit small{color:var(--soft);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.cd-done{font-family:var(--display);font-size:1.6rem;color:var(--magenta);text-align:center;margin:16px 0 0}
+
+.gauge{margin-top:18px}
+.gauge-top{display:flex;justify-content:space-between;font-weight:900;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.bar{height:16px;border:3px solid var(--ink);margin-top:6px;background:#fff;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--flare) 0 10px,var(--energy) 10px 20px);transition:width 1.2s ease}
+
+.address{font-family:var(--display);font-size:1.9rem;letter-spacing:.04em;margin:4px 0 0;line-height:1.1;user-select:all}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{
+  font:900 .9rem var(--body);text-decoration:none;cursor:pointer;
+  padding:10px 16px;border:3px solid var(--ink);background:var(--panel);color:var(--ink);
+  box-shadow:3px 3px 0 var(--ink);transition:transform .12s, box-shadow .12s;
+}
+.btn.solid{background:var(--energy)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+.note{font-size:.85rem;font-weight:700;min-height:1.3em;margin:10px 0 0;color:var(--magenta)}
+
+.closing{text-align:center;margin-top:8px}
+.closing p{font-family:var(--display);font-size:2.4rem;letter-spacing:.05em;margin:0;color:var(--energy);
+  -webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--magenta)}
+.closing small{display:block;color:var(--soft);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;margin-top:8px}
+
+@media (prefers-reduced-motion:reduce){.burst,.aura,.mascot{animation:none}}
+@media (max-width:400px){.when .day{font-size:4rem}.when .side{font-size:1.25rem}.address{font-size:1.6rem}}
+</style>
+
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="burst" aria-hidden="true"></div>
+    <div class="aura" aria-hidden="true"></div>
+
+    <svg class="mascot" viewBox="0 0 240 240" role="img" aria-label="Una bebé guerrera con el puñito en alto">
+      <!-- líneas de energía -->
+      <g stroke="#ffa94d" stroke-width="4" stroke-linecap="round">
+        <path d="M206 84 L224 74"/><path d="M212 104 L232 102"/><path d="M200 66 L208 48"/>
+      </g>
+      <!-- piecitos -->
+      <ellipse cx="98" cy="218" rx="18" ry="11" fill="#6fd3f5" stroke="#2b2350" stroke-width="4.5"/>
+      <ellipse cx="142" cy="218" rx="18" ry="11" fill="#6fd3f5" stroke="#2b2350" stroke-width="4.5"/>
+      <!-- bracito en la cadera -->
+      <path d="M86 172 L66 190 L82 204" fill="none" stroke="#2b2350" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M86 172 L66 190 L82 204" fill="none" stroke="#6fd3f5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- cuerpito redondo con trajecito -->
+      <ellipse cx="120" cy="184" rx="44" ry="36" fill="#6fd3f5" stroke="#2b2350" stroke-width="4.5"/>
+      <path d="M104 152 L120 176 L136 152" fill="none" stroke="#2b2350" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="77" y="186" width="86" height="11" rx="5" fill="#ff6fae" stroke="#2b2350" stroke-width="4"/>
+      <path d="M140 196 Q146 210 138 214 Q132 206 140 196Z" fill="#ff6fae" stroke="#2b2350" stroke-width="3.5"/>
+      <!-- bracito en alto -->
+      <path d="M152 172 L178 140 L186 118" fill="none" stroke="#2b2350" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M152 172 L178 140 L186 118" fill="none" stroke="#6fd3f5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="188" cy="110" r="14" fill="#ffdcc2" stroke="#2b2350" stroke-width="4.5"/>
+      <path d="M181 106 h13 M181 112 h14" stroke="#2b2350" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- moñitos -->
+      <circle cx="74" cy="50" r="15" fill="#3a2f5c" stroke="#2b2350" stroke-width="4.5"/>
+      <circle cx="166" cy="50" r="15" fill="#3a2f5c" stroke="#2b2350" stroke-width="4.5"/>
+      <circle cx="84" cy="62" r="6" fill="#ff6fae" stroke="#2b2350" stroke-width="3"/>
+      <circle cx="156" cy="62" r="6" fill="#ff6fae" stroke="#2b2350" stroke-width="3"/>
+      <!-- cabezota -->
+      <circle cx="120" cy="96" r="58" fill="#ffdcc2" stroke="#2b2350" stroke-width="4.5"/>
+      <!-- pelito -->
+      <path d="M64 92 C60 50 94 36 120 38 C146 36 180 50 176 92 C168 72 152 64 140 72 C132 60 110 60 102 72 C90 64 72 72 64 92Z"
+        fill="#3a2f5c" stroke="#2b2350" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M118 40 C110 22 134 16 132 32 C131 38 124 38 124 33" fill="none" stroke="#2b2350" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- ojitos brillantes -->
+      <ellipse cx="98" cy="106" rx="12" ry="15" fill="#2b2350"/>
+      <ellipse cx="142" cy="106" rx="12" ry="15" fill="#2b2350"/>
+      <circle cx="102" cy="100" r="5" fill="#fff"/><circle cx="146" cy="100" r="5" fill="#fff"/>
+      <circle cx="94" cy="112" r="2.5" fill="#fff"/><circle cx="138" cy="112" r="2.5" fill="#fff"/>
+      <!-- cejitas decididas -->
+      <path d="M86 84 L104 88 M154 84 L136 88" stroke="#2b2350" stroke-width="4" stroke-linecap="round"/>
+      <!-- cachetes y boquita -->
+      <ellipse cx="78" cy="126" rx="10" ry="6" fill="#ff6fae" opacity=".55"/>
+      <ellipse cx="162" cy="126" rx="10" ry="6" fill="#ff6fae" opacity=".55"/>
+      <path d="M110 128 Q115 136 120 128 Q125 136 130 128" fill="none" stroke="#2b2350" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- estrellitas -->
+      <path d="M214 140 l4 10 10 4 -10 4 -4 10 -4-10 -10-4 10-4z" fill="#ffd23f" stroke="#2b2350" stroke-width="2.5"/>
+      <path d="M28 76 l3 7 7 3 -7 3 -3 7 -3-7 -7-3 7-3z" fill="#ff6fae" stroke="#2b2350" stroke-width="2.5"/>
+      <path d="M36 154 l3 7 7 3 -7 3 -3 7 -3-7 -7-3 7-3z" fill="#ffd23f" stroke="#2b2350" stroke-width="2.5"/>
+    </svg>
+
+    <p class="kicker">¡Atención, familia!</p>
+    <h1>Baby Shower</h1>
+    <p class="name">Nara Ayana Georgina</p>
+    <p class="lead">Una pequeña guerrera muy poderosa está por llegar. ¡Ven a recibirla con mucho amor!</p>
+    <a class="btn solid hero-cta" href="#evento">Ver invitación</a>
+  </header>
+
+  <section class="panel intro" aria-labelledby="t-intro">
+    <span class="tag" id="t-intro">Te invitamos</span>
+    <p>Muy pronto llega Nara Ayana Georgina y queremos celebrarlo con toda la familia.</p>
+    <p>Acompáñanos a darle la bienvenida con mucho cariño, buena comida y la mejor energía. ¡Tu presencia hará este día aún más especial!</p>
+  </section>
+
+  <section class="panel" id="evento" aria-labelledby="t-when">
+    <span class="tag" id="t-when">Cuándo</span>
+    <div class="when" aria-label="Sábado 17 de octubre a las 6 de la tarde">
+      <div class="side">Sábado</div>
+      <div><span class="day">17</span><span class="month">OCTUBRE</span></div>
+      <div class="side">6:00 PM</div>
+    </div>
+    <div id="countdown" class="countdown" aria-live="polite">
+      <div class="unit"><b id="cd-d">–</b><small>días</small></div>
+      <div class="unit"><b id="cd-h">–</b><small>horas</small></div>
+      <div class="unit"><b id="cd-m">–</b><small>min</small></div>
+      <div class="unit"><b id="cd-s">–</b><small>seg</small></div>
+    </div>
+    <p id="cd-done" class="cd-done" hidden>¡Hoy es el gran día!</p>
+    <div class="gauge">
+      <div class="gauge-top"><span>Energía de la fiesta</span><span id="g-pct">…</span></div>
+      <div class="bar"><i id="g-bar"></i></div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="t-where">
+    <span class="tag" id="t-where">Dónde</span>
+    <p class="address" id="addr">Calle Los Periodistas 830</p>
+    <div class="actions">
+      <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Calle+Los+Periodistas+830" target="_blank" rel="noopener">Ver en el mapa</a>
+      <button class="btn" id="copy" type="button">Copiar dirección</button>
+      <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+de+Nara+Ayana+Georgina&dates=20261017T230000Z/20261018T020000Z&location=Calle+Los+Periodistas+830" target="_blank" rel="noopener">Agregar al calendario</a>
+    </div>
+    <p class="note" id="note"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="t-gifts">
+    <span class="tag" id="t-gifts">Lista de regalos</span>
+    <p style="margin:6px 0 0;font-weight:700">Tu presencia es el mejor regalo. Si deseas traer algo, aquí van algunas ideas:</p>
+    <ul class="gifts">
+      <li>Pañales etapa 1 y 2</li>
+      <li>Toallitas húmedas</li>
+      <li>Ropita de 0 a 6 meses</li>
+      <li>Mantitas y toallas</li>
+      <li>Biberones</li>
+      <li>Productos de baño</li>
+    </ul>
+  </section>
+
+  <section class="panel rsvp" aria-labelledby="t-rsvp" id="rsvp" hidden>
+    <span class="tag" id="t-rsvp">Confirma tu asistencia</span>
+    <p>Avísanos si vienes para preparar todo con cariño.</p>
+    <div class="actions">
+      <a class="btn wa" id="wa-btn" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+    </div>
+    <p class="small">Número: <span id="wa-num" style="user-select:all"></span></p>
+  </section>
+
+  <footer class="closing">
+    <p>¡Te esperamos!</p>
+    <small>Con cariño para nuestra pequeña Nara</small>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var target = new Date("2026-10-17T18:00:00-05:00").getTime();
+  var start = new Date("2026-10-14T00:00:00-05:00").getTime();
+  var d=document.getElementById("cd-d"),h=document.getElementById("cd-h"),m=document.getElementById("cd-m");
+  var bar=document.getElementById("g-bar"),pct=document.getElementById("g-pct");
+  function tick(){
+    var now=Date.now(), diff=target-now;
+    var p=Math.max(0,Math.min(100,Math.round((now-start)/(target-start)*100)));
+    bar.style.width=p+"%"; pct.textContent=p+"%";
+    if(diff<=0){
+      document.getElementById("countdown").hidden=true;
+      document.getElementById("cd-done").hidden=false;
+      pct.textContent="¡AL MÁXIMO!";
+      return;
+    }
+    d.textContent=Math.floor(diff/864e5);
+    h.textContent=Math.floor(diff/36e5)%24;
+    m.textContent=Math.floor(diff/6e4)%60;
+    s.textContent=Math.floor(diff/1e3)%60;
+  }
+  var s=document.getElementById("cd-s");
+  tick(); setInterval(tick,1000);
+
+  // Número de WhatsApp para confirmar (solo dígitos con código de país, ej. 51987654321)
+  var WHATSAPP = "";
+  if (WHATSAPP){
+    var msg = encodeURIComponent("¡Hola! Confirmo mi asistencia al baby shower de Nara Ayana Georgina 💖");
+    document.getElementById("wa-btn").href = "https://wa.me/" + WHATSAPP + "?text=" + msg;
+    document.getElementById("wa-num").textContent = "+" + WHATSAPP;
+    document.getElementById("rsvp").hidden = false;
+  }
+
+  var note=document.getElementById("note");
+  document.getElementById("copy").addEventListener("click",function(){
+    var el=document.getElementById("addr");
+    function fallback(){
+      var r=document.createRange(); r.selectNodeContents(el);
+      var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent="Dirección seleccionada: mantén presionado para copiarla.";
+    }
+    try{ navigator.clipboard.writeText(el.textContent).then(function(){note.textContent="¡Dirección copiada!";},fallback); }
+    catch(e){ fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
